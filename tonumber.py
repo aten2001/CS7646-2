@@ -8,12 +8,20 @@ elif len(sys.argv) > 2:
     print "Usage: ", sys.argv[0], " inputfile outputfile"
     exit(1);
 
-def openFile():
+def convertWords():
     with open("example.txt") as f:
         words = [word for line in f for word in line.split()]
-        print(words)
+        #print(words)
+        words_to_numbers = [ ];
+        for word in words:
+            letters = list(word)
+            print(letters)
 
-print(words)
+            #number = ord(word)
+            #words_to_numbers.append(number)
+
+
+
 
 """
 >>> number = ord('a')
@@ -26,4 +34,4 @@ print(words)
 
 
 if __name__ == '__main__':
-    openFile()
+    convertWords()
