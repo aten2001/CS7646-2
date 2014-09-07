@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 import sys, string
+"""
+tonumber.py < file.txt > file.number
+"""
 
 def convertStringToAsciiCharacters(sentence):
     ascii_rep=[]
@@ -14,12 +17,10 @@ if len(sys.argv) < 2:
 
 
 
-#f = open('/Users/jhourihane/Downloads/dis.txt')
 f = open(sys.argv[1])
 for word in f.read().split():
     lower = word.lower()
     for c in string.punctuation:
         lower=lower.replace(c,"")
-    #print(lower)
     myword = convertStringToAsciiCharacters(lower)
     print ''.join(str(x) for x in myword)
