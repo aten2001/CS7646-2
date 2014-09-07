@@ -1,37 +1,25 @@
 #!/usr/bin/env python
-import sys
+import sys, string
+
+def convertStringToAsciiCharacters(sentence):
+    ascii_rep=[]
+    for word in sentence:
+        for char in word:
+            ascii_rep.append(ord(char))
+    return ascii_rep
 
 if len(sys.argv) < 2:
-    print "Usage: ", sys.argv[0], " inputfile outputfile"
-    exit(1);
-elif len(sys.argv) > 2:
-    print "Usage: ", sys.argv[0], " inputfile outputfile"
-    exit(1);
-
-def convertWords():
-    with open("example.txt") as f:
-        words = [word for line in f for word in line.split()]
-        #print(words)
-        words_to_numbers = [ ];
-        for word in words:
-            letters = list(word)
-            print(letters)
-
-            #number = ord(word)
-            #words_to_numbers.append(number)
+    sys.stderr.write('Usage: sys.argv[0] \n')
+    sys.exit(1)
 
 
 
-
-"""
->>> number = ord('a')
->>> number
-97
->>> char = chr(number)
->>> char
-'a'
-"""
-
-
-if __name__ == '__main__':
-    convertWords()
+#f = open('/Users/jhourihane/Downloads/dis.txt')
+f = open(sys.argv[1])
+for word in f.read().split():
+    lower = word.lower()
+    for c in string.punctuation:
+        lower=lower.replace(c,"")
+    #print(lower)
+    myword = convertStringToAsciiCharacters(lower)
+    print ''.join(str(x) for x in myword)
